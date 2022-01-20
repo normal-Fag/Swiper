@@ -1,4 +1,6 @@
 @import "Blocks/header.scss";
+@import "Blocks/main-section.scss";
+@import "Blocks/slider.scss";
 
 *, 
 *::before,
@@ -33,4 +35,5 @@ body{
 	color: #000;
 	height: 100%;
 	line-height: 1;
+	background: #3c3c3c;
 }

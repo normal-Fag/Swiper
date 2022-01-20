@@ -1,0 +1,64 @@
+.slider {
+    width: 100%;
+    height: 100%;
+    padding-left: 70px;
+    overflow: hidden;
+    position: relative;
+    &__bottom {
+        position: absolute;
+        bottom: 0;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        width: calc(75% - 70px);
+        z-index: 5;
+    }
+    &__share-items {
+        background: #303030;
+        flex: 0 1 auto;
+        flex-direction: row;
+        display: flex;
+        border-right: 3px solid #ed8031;
+    }
+    &__share-item {
+        width: 70px;
+        height: 70px;
+        border-top: none;
+        border-bottom: none;
+    }
+    &__pagination {
+        flex: 0 0 140px;
+    }
+    &__scrollbar {
+        flex: 1 0 0;
+    }
+    &__navigation {
+        flex: 0 0 auto;
+    }
+}
+
+.swiper-img {
+    width: 75%;
+    height: 100%;
+    padding-top: 70px;
+    overflow: hidden;
+    position: relative;
+
+    &__slide {
+        height: 100%;
+        overflow: hidden;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            position: absolute;
+            background: rgba($color: #000000, $alpha: .3);
+        }
+
+    }
+    &__background {
+        height: 100%;
+        background: center/cover;
+    }
+}
