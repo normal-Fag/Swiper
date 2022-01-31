@@ -9,8 +9,21 @@ function init() {
         loop: false,
         speed: 2400,
         parallax: true,
-        mousewhell: {
-            invert: false,
-        },
     })
+
+    const swiperTXT = new Swiper('.swiper-txt', {
+        loop: false,
+        speed: 2400,
+        mousewheel: {
+            invert: true,
+          },
+        autoplay: {
+            delay: 10000,
+            disableOnInteraction: false,
+        }
+    })
+
+    swiperIMG.controller.control = swiperTXT
+    swiperTXT.controller.control = swiperIMG
+
 }
