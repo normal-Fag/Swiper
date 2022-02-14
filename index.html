@@ -3,12 +3,13 @@
 <head>
     <script type="text/javascript" src="js/app.js"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <link
         rel="stylesheet"
         href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="styles/css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Raleway&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Raleway&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +38,7 @@
     </header>
     <section class="main">
         <aside class="aside">
-            <div class="aside__decoration"></div>
+            <figure class="aside__decoration"></figure>
             <ul class="aside__soc-list">
                 <li class="aside__soc-item">
                     <a href="#" target="_blank" class="aside__soc-link">
@@ -64,7 +65,6 @@
                 <img src="src/icons/social/share-solid.svg" alt="share">
             </div>
         </aside>
-
 
         <div class="slider">
          
@@ -108,7 +108,6 @@
                 </div>
             </div>
 
-
             <div class="slider__bottom">
                 <ul class="slider__share-items">
                     <li class="aside__soc-item slider__share-item">
@@ -127,10 +126,27 @@
                         </a>
                     </li>
                 </ul>
-                <div class="slider__pagination">111</div>
-                <div class="slider__scrollbar">222</div>
-                <div class="slider__navigation">333</div>    
+                <div class="slider-pagination">
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="slider-scrollbar">
+                    <div class="swiper-scrollbar"></div>
+                </div>
+                <div class="slider-navigation">
+                    <div class="slider-navigation__container">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>  
+                </div>    
             </div>
+
+            <div class="slider-counter">
+                <span class="current">01</span> / <span class="total">03</span>
+            </div>
+
+            <div class="slider-current"><span class="slider-current__num">01</span><span class="slider-current__dot">.</span></div>
+
+            <figure class="slider-gear"></figure>
         </div>
     </section>
 </body>

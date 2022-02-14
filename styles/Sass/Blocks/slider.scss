@@ -4,6 +4,7 @@
     padding-left: 70px;
     overflow: hidden;
     position: relative;
+    color: #fff;
     &__bottom {
         position: absolute;
         bottom: 0;
@@ -26,17 +27,130 @@
         border-top: none;
         border-bottom: none;
     }
-    &__pagination {
-        flex: 0 0 140px;
+}
+.slider-pagination {
+    flex: 0 0 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .swiper-pagination {
+        top: -10px;
     }
-    &__scrollbar {
-        flex: 1 0 0;
+    .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+        // margin между bullet'ами 
+        margin: 0 7.5px;
     }
-    &__navigation {
-        flex: 0 0 auto;
+    & .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        opacity: 1;
+        background: #fff;
+        &-active {
+            background: #ed8031;
+            position: relative;
+            &::before {
+                content: '';
+                width: 14px;
+                height: 14px;
+                border: 1px solid #ed8031;
+                position: absolute;
+                border-radius: 100%;
+                left: -4px;
+                top: -4px;
+            }
+        }
     }
 }
+.slider-scrollbar {
+    flex: 1 0 0;
+        .swiper-scrollbar {
+            height: 1px;
+            background: rgba($color: #fff, $alpha: .2);
+        }
+        .swiper-scrollbar-drag {
+            height: 3px;
+            background: rgba($color: #ed8031, $alpha: 1.0);
+            top: -1px;
+        }
+}
+
+.slider-navigation {
+    flex: 0 0 140px;
+    position: relative;
+    left: 10px;
+    .swiper-button {
+        &-next, &-prev {
+            top: 5px;
+            width: 32px;
+            height: 32px;
+            background: #3c3c3c;
+            border-radius: 100%;
+            border: 2px solid #ed8031;
+            color: #ed8031;
+            &::after {
+                font-size: 10px;
+            }
+        }
+        &-next {
+            right: 0;
+        }
+        &-left {
+            left: 0;
+        }
+        &-disabled {
+            // можно добавить стиль для кнопки, которая деактивируется в конце слайдера
+        }
+    }
+    &__container {
+        max-width: 80px;
+        position: relative;
+        margin: auto;
+    }
+}
+.slider-counter {
+    top: 100px;
+    right: 15px;
+    width: 120px;
+    height: 80px;
+    position: absolute;
+    font-family: Oswald, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    .current {
+        font-size: 40px;
+        color: #ed8031;
+        display: inline-block;
+        min-width: 42px;
+    }
+}
+.slider-current {
+    position: absolute;
+    right: 40px;
+    bottom: 10px;
+    font-size: 100px;
+    font-family: Oswald, sans-serif;
+    color: #252525;
+    -webkit-text-stroke: 1px #7f7f7f;
+    &__dot {
+        color: #ed8031;
+        -webkit-text-stroke: 0px #7f7f7f;
+    }
+}
+.slider-gear {
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    transform: translateY(calc(-56%));
+    z-index: 2;
+    position: absolute;
+    background: url(../../../src/icons/slider/gear.svg) center/cover no-repeat;
+    opacity: 0.04;
+    right: calc(24% - 250px);
+}
+
 .swiper-img {
+    // первый слайдер с изображениями
     width: 75%;
     height: 100%;
     padding-top: 70px;
@@ -56,13 +170,14 @@
         }
     }
     &__background {
-        // класс для выравнивания изображений в слайдах
-        // картинки в слайдах сделаны через bg, т.к. используется параллакс
+        // класс для выравнивания изображений в слайдах.
+        // изображения в слайдах сделаны через bg, т.к. используется параллакс.
         height: 100%;
         background: center/cover;
     }
 }
 .swiper-txt {
+    // второй слайдер с текстом и кнопкой заявки
     position: absolute;
     z-index: 3;
     width: 100%;
@@ -76,6 +191,9 @@
         color: #fff;
         text-align: right;
         padding-right: 22%;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
     }
     &__heading {
         max-width: 780px;
@@ -84,7 +202,6 @@
         font-weight: bold;
         line-height: 120%;
         text-transform: uppercase;
-        float: right;
         margin-bottom: 20px;
         span {
             color: #ed8031;
@@ -97,7 +214,6 @@
         font-weight: 600;
         line-height: 170%;
         max-width: 500px;
-        float: right;
         margin-bottom: 20px;
     }
     &__button {
@@ -107,6 +223,7 @@
 }
 
 .button {
+    // стандартный класс для кнопки
     position: relative;
     color: #fff;
     background: #ed8031;
@@ -126,7 +243,6 @@
         height: 100%;
         background: rgba($color: #3c3c3c, $alpha: 1.0);
         transition: width 0.5s ease-out;
-        // z-index: 10;
     }
     &:hover::before, &:focus::before {
         width: 100%;

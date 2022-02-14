@@ -218,6 +218,7 @@
   padding-left: 70px;
   overflow: hidden;
   position: relative;
+  color: #fff;
 }
 .slider__bottom {
   position: absolute;
@@ -252,20 +253,137 @@
   border-top: none;
   border-bottom: none;
 }
-.slider__pagination {
+
+.slider-pagination {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 140px;
           flex: 0 0 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
 }
-.slider__scrollbar {
+.slider-pagination .swiper-pagination {
+  top: -10px;
+}
+.slider-pagination .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .slider-pagination .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 7.5px;
+}
+.slider-pagination .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  opacity: 1;
+  background: #fff;
+}
+.slider-pagination .swiper-pagination-bullet-active {
+  background: #ed8031;
+  position: relative;
+}
+.slider-pagination .swiper-pagination-bullet-active::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border: 1px solid #ed8031;
+  position: absolute;
+  border-radius: 100%;
+  left: -4px;
+  top: -4px;
+}
+
+.slider-scrollbar {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 0px;
           flex: 1 0 0;
 }
-.slider__navigation {
+.slider-scrollbar .swiper-scrollbar {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.slider-scrollbar .swiper-scrollbar-drag {
+  height: 3px;
+  background: #ed8031;
+  top: -1px;
+}
+
+.slider-navigation {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+      -ms-flex: 0 0 140px;
+          flex: 0 0 140px;
+  position: relative;
+  left: 10px;
+}
+.slider-navigation .swiper-button-next, .slider-navigation .swiper-button-prev {
+  top: 5px;
+  width: 32px;
+  height: 32px;
+  background: #3c3c3c;
+  border-radius: 100%;
+  border: 2px solid #ed8031;
+  color: #ed8031;
+}
+.slider-navigation .swiper-button-next::after, .slider-navigation .swiper-button-prev::after {
+  font-size: 10px;
+}
+.slider-navigation .swiper-button-next {
+  right: 0;
+}
+.slider-navigation .swiper-button-left {
+  left: 0;
+}
+.slider-navigation__container {
+  max-width: 80px;
+  position: relative;
+  margin: auto;
+}
+
+.slider-counter {
+  top: 100px;
+  right: 15px;
+  width: 120px;
+  height: 80px;
+  position: absolute;
+  font-family: Oswald, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+}
+.slider-counter .current {
+  font-size: 40px;
+  color: #ed8031;
+  display: inline-block;
+  min-width: 42px;
+}
+
+.slider-current {
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
+  font-size: 100px;
+  font-family: Oswald, sans-serif;
+  color: #252525;
+  -webkit-text-stroke: 1px #7f7f7f;
+}
+.slider-current__dot {
+  color: #ed8031;
+  -webkit-text-stroke: 0px #7f7f7f;
+}
+
+.slider-gear {
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  -webkit-transform: translateY(calc(-56%));
+          transform: translateY(calc(-56%));
+  z-index: 2;
+  position: absolute;
+  background: url(../../../src/icons/slider/gear.svg) center/cover no-repeat;
+  opacity: 0.04;
+  right: calc(24% - 250px);
 }
 
 .swiper-img {
@@ -314,6 +432,16 @@
   color: #fff;
   text-align: right;
   padding-right: 22%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .swiper-txt__heading {
   max-width: 780px;
@@ -322,7 +450,6 @@
   font-weight: bold;
   line-height: 120%;
   text-transform: uppercase;
-  float: right;
   margin-bottom: 20px;
 }
 .swiper-txt__heading span {
@@ -335,7 +462,6 @@
   font-weight: 600;
   line-height: 170%;
   max-width: 500px;
-  float: right;
   margin-bottom: 20px;
 }
 .swiper-txt__button {
@@ -413,5 +539,5 @@ body {
   color: #000;
   height: 100%;
   line-height: 1;
-  background: #3c3c3c;
+  background: #252525;
 }
